@@ -162,7 +162,7 @@ Never commit secret values. The workflow reads them exclusively from GitHub secr
 | Trivy local fs scan | ✅ 0 HIGH/CRITICAL (pip deps + Dockerfile) |
 | Argo CD sync | ✅ `Synced` + `Healthy` observed |
 | GitOps reconciliation | ✅ `replicaCount` 1→2→1 auto-synced and pruned |
-| Pod health after security-context change | ⚠️ Not re-verified after commit `93adcce` — confirm with `kubectl get pods` |
+| Pod health after security-context change | ✅ Verified — 1/1 Running, 0 restarts, Argo CD Synced/Healthy, /health returns HTTP 200 |
 
 ### Hosted GitHub Actions (latest run)
 
