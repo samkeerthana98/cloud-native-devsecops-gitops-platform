@@ -19,6 +19,9 @@ spec:
         runAsUser: 1000
         seccompProfile:
           type: RuntimeDefault
+      volumes:
+        - name: tmp
+          emptyDir: {}
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
@@ -32,6 +35,9 @@ spec:
           ports:
             - containerPort: {{ .Values.containerPort }}
               protocol: TCP
+          volumeMounts:
+            - mountPath: /tmp
+              name: tmp
           livenessProbe:
             httpGet:
               path: {{ .Values.probes.path }}
