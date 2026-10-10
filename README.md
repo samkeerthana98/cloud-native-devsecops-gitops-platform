@@ -216,7 +216,7 @@ kubectl patch application devsecops-app -n argocd \
 ```
 
 **Docker Hub login fails with `malformed HTTP Authorization header`**
-The `DOCKERHUB_USERNAME` or `DOCKERHUB_TOKEN` secret likely contains leading/trailing whitespace introduced during paste. Re-enter both secrets in Settings → Secrets → Actions by typing the username and pasting the token fresh from the Docker Hub Access Tokens page.
+The `DOCKERHUB_USERNAME` or `DOCKERHUB_TOKEN` secret may contain leading/trailing whitespace introduced during paste. Re-enter both secrets in Settings → Secrets → Actions by typing the username and pasting the token fresh from the Docker Hub Access Tokens page.
 
 ---
 
