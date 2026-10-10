@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: devsecops-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/samkeerthana98/cloud-native-devsecops-gitops-platform
+    targetRevision: main
+    path: helm/devsecops-app
+    helm:
+      valueFiles:
+        - values.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
